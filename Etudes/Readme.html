@@ -1,0 +1,1136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-10-25 Fri 17:32 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Études sur le mini-projet "Books"</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="bernard" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Études sur le mini-projet "Books"</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgff37953">1. Objectif</a></li>
+<li><a href="#orgefbf9d5">2. Avec ou sans objets / classes</a>
+<ul>
+<li><a href="#org883398c">2.1. Astuce</a></li>
+<li><a href="#orgccb4109">2.2. Tri des mots par nombre d'occurrences</a></li>
+</ul>
+</li>
+<li><a href="#orgf7f90c5">3. Interactions</a>
+<ul>
+<li><a href="#org58d1614">3.1. Lister les textes</a></li>
+<li><a href="#orgc8a7358">3.2. Ajouter un texte</a></li>
+<li><a href="#orgd5d0093">3.3. Supprimer un texte</a></li>
+<li><a href="#org70087ec">3.4. Action menant aux actions spécifiques à un texte</a></li>
+<li><a href="#orgcab414d">3.5. Sélectionner un texte dans une liste</a></li>
+<li><a href="#org174a449">3.6. Afficher le nombre de lignes</a></li>
+<li><a href="#org78c305e">3.7. Afficher le nombre de mots</a></li>
+<li><a href="#orgdccde1c">3.8. Mots les plus fréquents</a></li>
+<li><a href="#org83bd1f3">3.9. Mots spécifiques à un texte</a></li>
+<li><a href="#org18bb5c3">3.10. Pourcentage de mots partagés</a></li>
+<li><a href="#orge23575d">3.11. Quitter</a></li>
+<li><a href="#org206917e">3.12. Menu</a></li>
+</ul>
+</li>
+<li><a href="#org2769f44">4. Classes Métier</a>
+<ul>
+<li><a href="#orgbd5d0f7">4.1. Ensemble des textes</a></li>
+<li><a href="#orgad6f93a">4.2. Texte</a></li>
+</ul>
+</li>
+<li><a href="#orge2d5803">5. Programme principal</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgff37953" class="outline-2">
+<h2 id="orgff37953"><span class="section-number-2">1</span> Objectif</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Explorer plusieurs pistes de solutions pour comprendre les tenants et aboutissants
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgefbf9d5" class="outline-2">
+<h2 id="orgefbf9d5"><span class="section-number-2">2</span> Avec ou sans objets / classes</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+À chaque fois qu'on a des données qui sont manipulées ensemble, on
+peut les regrouper au sein d'objets instances de classes. Ça ne veut
+pas dire qu'il <b>faut</b> le faire : les classes ajoutent du code qui peut
+participer à la complexité du programme. On va pouvoir décomposer /
+composer différentes classes pour implémenter le programme. Dans une
+approche descendante (<i>top-down</i>), on partira du niveau le plus global
+et l'on procède par décomposition. Dans une approche ascendante
+(<i>bottom-up</i>), on identifiera d'abord les "briques de base" du domaine
+et l'on composera celles-ci jusqu'à obtenir le niveau global. En
+pratique, on alternera souvent en faisant des aller-retour entre les
+différents niveaux <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>. Ici, on pourrait identifier trois
+types d'entités du domaine traité (<i>business logic</i>:
+</p>
+
+<dl class="org-dl">
+<dt><code>CountedWord</code></dt><dd>Un couple (mot, nombre d'occurrences) dans un texte
+donné.</dd>
+<dt><code>Book</code></dt><dd>Les informations relatives à un texte (nom du fichier,
+mots qu'il contient,…)</dd>
+<dt><code>BooksLibrary</code></dt><dd>Les informations concernant l'ensemble des textes
+manipulés. Cette classe contiendra aussi
+l'ensemble des opérations qu'il est possible de
+faire sur ces données, implémentant les
+fonctionnalités demandées, mais sans faire
+d'entrées/sorties, ce qui permettra une
+réutilisation maximum de ces fonctionnalités.</dd>
+</dl>
+
+
+<p>
+La classe la plus évidente est la classe <code>Book</code> car il y aura
+manifestement autant d'instances que de textes et l'on aura un certain
+nombre d'opérations qui manipulent les textes.
+</p>
+
+
+<p>
+Pour la classe <code>BooksLibrary</code>, comme il n'y en a qu'une seule
+instance, on pourrait se contenter d'utiliser des variables (locales
+ou de classe) de la classe qui implémente le programme
+principal. Utiliser une instance est plus "propre" à deux points de
+vue :
+</p>
+<ul class="org-ul">
+<li>en terme d'extensibilité : on pourra réutiliser les classes en cas
+d'évolution vers une architecture de type client-serveur qui
+permettra à plusieurs utilisateurs, chacun ayant sa propre instance
+de bibliothèque. Plus vraisemblablement, on pourra aussi implémenter
+plus efficacement des tests en ayant un programme de test qui pourra
+manipuler différentes bibliothèques.</li>
+<li>en terme d'implémentation des interactions, on pourra vouloir passer
+un objet bibliothèque aux méthodes qui permettront d'utiliser la
+bibliothèque.</li>
+</ul>
+
+
+<p>
+Pour la classe <code>CountedWord</code>, l'utilité n'est pas aussi évidente, car
+leur utilité n'est que très locale : au moment de calculer les <code>n</code>
+(=50) mots les plus fréquents d'un texte. À ce moment, on pourrait
+utiliser cette classe pour deux choses :
+</p>
+<ul class="org-ul">
+<li>compter les mots</li>
+<li>trier les mots comptés</li>
+</ul>
+
+<p>
+Le problème est que :
+</p>
+<ul class="org-ul">
+<li>pour compter les mots efficacement, on voudra pouvoir utiliser un
+<a href="https://docs.oracle.com/javase/9/docs/api/java/util/Set.html">Set&lt;CountedWord&gt;</a> avec donc une redéfinition de la méthode <a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Object.html#equals-java.lang.Object-">equals</a> qui
+ne prenne pas en compte le nombre d'occurrences.</li>
+<li>pour tirer les mots simplement, on voudra pouvoir utiliser <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html#sort(java.util.List)">une
+méthode de tri</a> qui prennent en compte le nombre nombre
+d'occurrences.</li>
+</ul>
+</div>
+
+<div id="outline-container-org883398c" class="outline-3">
+<h3 id="org883398c"><span class="section-number-3">2.1</span> Astuce</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+On pourrait être astucieux et réaliser que l'égalité et l'<i>ordre
+naturel</i> sont implémentés par deux méthodes distinctes <a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Object.html#equals-java.lang.Object-">equals</a> définie
+dans <a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html">Object</a> et à redéfinir, et <a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Comparable.html#compareTo(T)">compareTo</a> déclarée dans <a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Comparable.html">Comparable</a> et
+qui doit donc être définie pour implémenter cette dernière.
+</p>
+
+<p>
+Être astucieux en programmation peut cependant présenter des inconvénients et la documentation officielle indique :
+</p>
+<blockquote>
+<p>
+It is strongly recommended, but not strictly required that (x.compareTo(y)==0) == (x.equals(y)). Generally speaking, any class that implements the Comparable interface and violates this condition should clearly indicate this fact. The recommended language is "Note: this class has a natural ordering that is inconsistent with equals." 
+</p>
+</blockquote>
+
+<p>
+En effet, les astuces consistent souvent à tirer parti de conditions
+particulières et peuvent rendre le code 'fragile' si des évolutions
+remettent en cause ces dernières. Dans le cas du mini-projet en
+lui-même, il est facile de s'assurer qu'il n'y a pas de soucis avec
+cette astuce, mais on peut préférer s'habituer à éviter les astuces.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgccb4109" class="outline-3">
+<h3 id="orgccb4109"><span class="section-number-3">2.2</span> Tri des mots par nombre d'occurrences</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Si l'on renonce à l'astuce de l'implémentation de l'interface
+<code class="src src-java">Comparable</code> avec une méthode <code class="src src-java">compareTo</code> contredisant le <code class="src src-java">equals</code>, on
+perd beaucoup de l'intérêt d'une classe <code class="src src-java">CountedWord</code> qui ne serait alors plus utile deux fois (comptage
+et tri) mais une seule des deux fois, suivant que l'on prenne en
+compte les occurrences (pour le tri) ou non (pour le comptage).
+</p>
+
+<p>
+Il est alors aussi simple d'utiliser des <code class="src src-java">String</code> et des <code class="src src-java"><span style="color: #6434A3;">int</span></code> (et
+<code class="src src-java">Integer</code> pour stocker dans des structures de
+données) : si on doit de toutes façons utiliser un objet d'une classe
+implémentant <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html">Comparator</a> pour trier, on peut lui faire trier des mots
+de type <code class="src src-java">String</code> en prenant en compte les
+occurrences associées.
+</p>
+
+<p>
+Si l'on voulait, on pourrait réutiliser les classes implémentant
+l'interface <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.Entry.html">Map.Entry&lt;K,V&gt;</a> (ici <code class="src src-java"><span style="color: #D0372D;">Map</span>.<span style="color: #6434A3;">Entry</span>&lt;<span style="color: #6434A3;">String</span>,<span style="color: #6434A3;">Integer</span>&gt;</code>, donc, contenues dans des
+<code class="src src-java"><span style="color: #6434A3;">Map</span>&lt;<span style="color: #6434A3;">String</span>, <span style="color: #6434A3;">Integer</span>&gt;</code>)pour manipuler des
+couples <code>(mot, nombre d'occurrence)</code> et on pourrait même les avoir
+dans l'ordre que l'on veut (i.e. triés selon le nombre d'occurrences)
+dans une <a href="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashMap.html">LinkedHashMap&lt;K,V&gt;</a>, mais une telle connaissance des
+structures de données en Java n'était pas attendue.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgf7f90c5" class="outline-2">
+<h2 id="orgf7f90c5"><span class="section-number-2">3</span> Interactions</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Pour le petit mini-projet, on peut se contenter de menus classiques en
+factorisant au moins le code d'affichage des choix et de saisie d'un
+entier valide. Si l'on veut une solution plus extensible dans une
+sorte de framework réutilisable, on peut définir des classes pour
+représenter les menus et les actions qu'ils permettent :
+</p>
+
+
+<p>
+Une action effectuée à partir d'un menu sera caractérisée par un label (la ligne affichée dans le menu) et une action qui sera déclenchée lors de la sélection. Pour être le plus général possible, la méthode <code class="src src-java">doIt</code> qui implémente cette action ne prend pas d'arguments et ne retourne pas de résultat. Elle cependant accès aux éventuels attributs, ce qui lui permettra de récupérer des données qui auront été passées au constructeur de l'objet, et elle pourra avoir des effets de bords à travers des références (par exemple pour mettre des valeurs dans un tableau).
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #0000FF;">interface</span> <span style="color: #6434A3;">MenuItem</span> {
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">String</span> <span style="color: #006699;">getLabel</span>();
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">doIt</span>();
+}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org58d1614" class="outline-3">
+<h3 id="org58d1614"><span class="section-number-3">3.1</span> Lister les textes</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">ListBooksAction</span> <span style="color: #0000FF;">implements</span> <span style="color: #6434A3;">MenuItem</span>{
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">LABEL</span>= <span style="color: #008000;">"Lister les fichiers"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">BooksLibrary</span> <span style="color: #BA36A5;">library</span>;
+
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">ListBooksAction</span> (<span style="color: #6434A3;">BooksLibrary</span> <span style="color: #BA36A5;">library</span>){
+        <span style="color: #0000FF;">this</span>.library = library;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">String</span> <span style="color: #006699;">getLabel</span>(){
+        <span style="color: #0000FF;">return</span> LABEL;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">doIt</span>(){
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">Book</span> <span style="color: #006699;">book</span> : library.getBooks()){
+            System.out.println(book.getFilename());
+        }
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc8a7358" class="outline-3">
+<h3 id="orgc8a7358"><span class="section-number-3">3.2</span> Ajouter un texte</h3>
+<div class="outline-text-3" id="text-3-2">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">AddBookAction</span> <span style="color: #0000FF;">implements</span> <span style="color: #6434A3;">MenuItem</span>{
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">LABEL</span>= <span style="color: #008000;">"Ajouter un fichier"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">PROMPT</span>= <span style="color: #008000;">"Saisissez le nom du fichier &#224; ajouter:"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">SUCCESS_MESSAGE</span>= <span style="color: #008000;">"Le fichier %s a bien &#233;t&#233; ajout&#233;"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">FAILURE_MESSAGE</span>= <span style="color: #008000;">"Le fichier %s n'a pas pu &#234;tre ajout&#233; !"</span>;
+
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">BooksLibrary</span> <span style="color: #BA36A5;">library</span>;
+
+    <span style="color: #0000FF;">public</span>  <span style="color: #006699;">AddBookAction</span> (<span style="color: #6434A3;">BooksLibrary</span> <span style="color: #BA36A5;">library</span>){
+        <span style="color: #0000FF;">this</span>.library = library;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">String</span> <span style="color: #006699;">getLabel</span>(){
+        <span style="color: #0000FF;">return</span> LABEL;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">doIt</span>(){
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">boolean</span> <span style="color: #BA36A5;">done</span>= <span style="color: #D0372D;">false</span>; !done; <span style="color: #8D8D84;">/* </span><span style="color: #8D8D84; font-style: italic;">rien ici */</span>) {
+            System.out.println(PROMPT);
+            <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">filename</span>=<span style="color: #008000;">""</span>;
+            <span style="color: #0000FF;">try</span> {
+                filename = Main.sc.nextLine();
+                library.add(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Book</span>(filename));
+                done= <span style="color: #D0372D;">true</span>; <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Si on est ici, c'est que l'ajout a &#233;t&#233; fait</span>
+                System.out.println(String.format(SUCCESS_MESSAGE, filename));
+            }<span style="color: #0000FF;">catch</span>(<span style="color: #6434A3;">Exception</span> <span style="color: #BA36A5;">e</span>){ <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">TODO pr&#233;ciser l'exception</span>
+                System.err.println(String.format(FAILURE_MESSAGE, filename));
+                <span style="color: #8D8D84;">//</span><span style="color: #8D8D84; font-style: italic;">e.printStackTrace();</span>
+            }
+        }
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd5d0093" class="outline-3">
+<h3 id="orgd5d0093"><span class="section-number-3">3.3</span> Supprimer un texte</h3>
+<div class="outline-text-3" id="text-3-3">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">RemoveBookAction</span> <span style="color: #0000FF;">implements</span> <span style="color: #6434A3;">MenuItem</span>{
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">LABEL</span>= <span style="color: #008000;">"Supprimer un fichier"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">PROMPT</span>= <span style="color: #008000;">"Saisissez le nom du fichier &#224; supprimer:"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">SUCCESS_MESSAGE</span>= <span style="color: #008000;">"Le fichier %s a bien &#233;t&#233; supprim&#233;"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">FAILURE_MESSAGE</span>= <span style="color: #008000;">"Le fichier %s n'a pas pu &#234;tre supprim&#233; !"</span>;
+
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">BooksLibrary</span> <span style="color: #BA36A5;">library</span>;
+
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">RemoveBookAction</span> (<span style="color: #6434A3;">BooksLibrary</span> <span style="color: #BA36A5;">library</span>){
+        <span style="color: #0000FF;">this</span>.library = library;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">String</span> <span style="color: #006699;">getLabel</span>(){
+        <span style="color: #0000FF;">return</span> LABEL;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">doIt</span>(){
+        <span style="color: #0000FF;">if</span>(library.getBooks().isEmpty())
+            { <span style="color: #0000FF;">return</span> ; } <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">on ne peut pas supprimer de texte car il n'y en a pas !</span>
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">boolean</span> <span style="color: #BA36A5;">done</span>= <span style="color: #D0372D;">false</span>; !done; <span style="color: #8D8D84;">/* </span><span style="color: #8D8D84; font-style: italic;">rien ici */</span>) {
+            System.out.println(PROMPT);
+            <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">filename</span>= <span style="color: #008000;">""</span>;
+            <span style="color: #0000FF;">try</span> {
+                filename = Main.sc.nextLine();
+                library.remove(filename);
+                done= <span style="color: #D0372D;">true</span>; <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Si on est ici, c'est que l'ajout a &#233;t&#233; fait</span>
+                System.out.println(String.format(SUCCESS_MESSAGE, filename));
+            }<span style="color: #0000FF;">catch</span>(<span style="color: #6434A3;">Exception</span> <span style="color: #BA36A5;">e</span>){
+                System.err.println(String.format(FAILURE_MESSAGE, filename));
+                <span style="color: #8D8D84;">//</span><span style="color: #8D8D84; font-style: italic;">e.printStackTrace();</span>
+            }
+        }
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org70087ec" class="outline-3">
+<h3 id="org70087ec"><span class="section-number-3">3.4</span> Action menant aux actions spécifiques à un texte</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Cette action utilise elle-même deux menus :
+</p>
+<ol class="org-ol">
+<li>pour sélectionner le texte à traiter</li>
+<li>pour sélectionner l'action à effectuer sur ce texte</li>
+</ol>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">List</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">ArrayList</span>;
+
+<span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">BookSelectionAction</span> <span style="color: #0000FF;">implements</span> <span style="color: #6434A3;">MenuItem</span>{
+
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">LABEL</span> = <span style="color: #008000;">"Afficher les informations sur un livre"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">SELECT_BOOK_LABEL</span> = <span style="color: #008000;">"Veuillez choisir le texte de r&#233;f&#233;rence"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">SELECT_ACTION_LABEL</span> = <span style="color: #008000;">"Veuillez choisir l'action &#224; effectuer"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">BooksLibrary</span> <span style="color: #BA36A5;">library</span>;
+
+    <span style="color: #0000FF;">public</span>  <span style="color: #006699;">BookSelectionAction</span> (<span style="color: #6434A3;">BooksLibrary</span> <span style="color: #BA36A5;">library</span>){
+        <span style="color: #0000FF;">this</span>.library = library;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">String</span> <span style="color: #006699;">getLabel</span>(){
+        <span style="color: #0000FF;">return</span> LABEL;
+    }
+    <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">Book</span> <span style="color: #006699;">askSelectedBook</span>(){
+        <span style="color: #6434A3;">List</span>&lt;<span style="color: #6434A3;">MenuItem</span>&gt; <span style="color: #BA36A5;">entries</span> = <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">ArrayList</span>&lt;<span style="color: #6434A3;">MenuItem</span>&gt;();
+        <span style="color: #6434A3;">Book</span>[] <span style="color: #BA36A5;">result</span> = <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Book</span>[1];
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">Book</span> <span style="color: #006699;">book</span> : library.getBooks()){
+            entries.add(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">SelectBookAction</span>(book, result));
+        }
+        <span style="color: #6434A3;">Menu</span> <span style="color: #BA36A5;">menu</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Menu</span>(SELECT_BOOK_LABEL, entries);
+        menu.doIt();
+        <span style="color: #0000FF;">return</span> result[0];
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">doIt</span>(){
+        <span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span> = askSelectedBook();
+        <span style="color: #6434A3;">List</span>&lt;<span style="color: #6434A3;">MenuItem</span>&gt; <span style="color: #BA36A5;">entries</span> = <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">ArrayList</span>&lt;<span style="color: #6434A3;">MenuItem</span>&gt;();
+        entries.add(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">NbLinesAction</span>(book));
+        entries.add(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">NbWordsAction</span>(book));
+        entries.add(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">TopWordsAction</span>(book));
+        entries.add(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">SpecificWordsAction</span>(book, library));
+        entries.add(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">SharedWordsPercentAction</span>(book, library));
+        <span style="color: #6434A3;">Menu</span> <span style="color: #BA36A5;">menu</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Menu</span>(SELECT_ACTION_LABEL, entries);
+        menu.doIt();
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcab414d" class="outline-3">
+<h3 id="orgcab414d"><span class="section-number-3">3.5</span> Sélectionner un texte dans une liste</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+Cette action doit pouvoir "retourner" le livre sélectionné. Pour cela,
+on prend un tableau en argument du constructeur et on stocke la
+référence dans un attribut. Lorsque l'action est déclenchée, on
+modifie le contenu de ce tableau. Le code appelant, qui a passé la
+référence vers le tableau au constructeur et a lancé le menu, peut
+ensuite lire le contenu du tableau pour savoir quelle instance de
+<code class="src src-java">Book</code> a été sélectionnée.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">SelectBookAction</span> <span style="color: #0000FF;">implements</span> <span style="color: #6434A3;">MenuItem</span>{
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">Book</span>[] <span style="color: #BA36A5;">result</span>;
+
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">SelectBookAction</span> (<span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>, <span style="color: #6434A3;">Book</span>[] <span style="color: #BA36A5;">result</span>){
+        <span style="color: #0000FF;">this</span>.book = book;
+        <span style="color: #0000FF;">this</span>.result = result; <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">TODO lancer une exception si result.length != 1 (ou au moins si &lt; 1!)</span>
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">String</span> <span style="color: #006699;">getLabel</span>(){
+        <span style="color: #0000FF;">return</span> book.getFilename();
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">doIt</span>(){
+        result[0]= book;
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org174a449" class="outline-3">
+<h3 id="org174a449"><span class="section-number-3">3.6</span> Afficher le nombre de lignes</h3>
+<div class="outline-text-3" id="text-3-6">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">NbLinesAction</span> <span style="color: #0000FF;">implements</span> <span style="color: #6434A3;">MenuItem</span>{
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">LABEL</span> = <span style="color: #008000;">"Afficher le nombre de lignes du fichier"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">MESSAGE</span> = <span style="color: #008000;">"Le fichier %s fait %d lignes"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>;
+
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">NbLinesAction</span>(<span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>){
+        <span style="color: #0000FF;">this</span>.book = book;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">String</span> <span style="color: #006699;">getLabel</span>(){
+        <span style="color: #0000FF;">return</span> LABEL;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">doIt</span>(){
+        System.out.println(String.format(MESSAGE, book.getFilename(), book.getNbLines()));
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org78c305e" class="outline-3">
+<h3 id="org78c305e"><span class="section-number-3">3.7</span> Afficher le nombre de mots</h3>
+<div class="outline-text-3" id="text-3-7">
+<p>
+Les spécifications n'étaient pas très explicite sur le nombre de mots (nombre de mots uniques) ou nombre de mots dans le fichier. Nous avons choisi d'implémenter le second cas (c'est de toutes façons délégué à la classe <code class="src src-java">Book</code>, mais ceci explique qu'on ne se contente pas de récupérer l'ensemble des mots et d'appeler <code class="src src-java">size</code> sur cet ensemble).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">NbWordsAction</span> <span style="color: #0000FF;">implements</span> <span style="color: #6434A3;">MenuItem</span>{
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">LABEL</span> = <span style="color: #008000;">"Afficher le nombre de mots du fichier"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">MESSAGE</span> = <span style="color: #008000;">"Le fichier %s contient %d mots"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>;
+
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">NbWordsAction</span>(<span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>){
+        <span style="color: #0000FF;">this</span>.book = book;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">String</span> <span style="color: #006699;">getLabel</span>(){
+        <span style="color: #0000FF;">return</span> LABEL;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">doIt</span>(){
+        System.out.println(String.format(MESSAGE, book.getFilename(), book.getNbWords()));
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdccde1c" class="outline-3">
+<h3 id="orgdccde1c"><span class="section-number-3">3.8</span> Mots les plus fréquents</h3>
+<div class="outline-text-3" id="text-3-8">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">List</span>;
+
+<span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">TopWordsAction</span> <span style="color: #0000FF;">implements</span> <span style="color: #6434A3;">MenuItem</span>{
+    <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">NB_TOP_WORDS</span> = 50;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">LABEL</span> = <span style="color: #008000;">"Afficher les mots les plus fr&#233;quents du fichier"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">MESSAGE</span> = <span style="color: #008000;">"Les mots les plus fr&#233;quents du fichier sont:"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">WORD_INFO</span> = <span style="color: #008000;">"%d : %s"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>;
+
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">TopWordsAction</span>(<span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>){
+        <span style="color: #0000FF;">this</span>.book = book;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">String</span> <span style="color: #006699;">getLabel</span>(){
+        <span style="color: #0000FF;">return</span> LABEL;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">doIt</span>(){
+        System.out.println(MESSAGE);
+        <span style="color: #6434A3;">List</span>&lt;<span style="color: #6434A3;">String</span>&gt; <span style="color: #BA36A5;">topWords</span> = book.getTopWords();
+        <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">end</span> = Math.min(topWords.size(), NB_TOP_WORDS);
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>=0; i != end; ++i){
+            <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">word</span>= topWords.get(i);
+            System.out.println(String.format(WORD_INFO, book.getNbOcc(word), word));
+        }
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org83bd1f3" class="outline-3">
+<h3 id="org83bd1f3"><span class="section-number-3">3.9</span> Mots spécifiques à un texte</h3>
+<div class="outline-text-3" id="text-3-9">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">SpecificWordsAction</span> <span style="color: #0000FF;">implements</span> <span style="color: #6434A3;">MenuItem</span>{
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">LABEL</span> = <span style="color: #008000;">"Afficher les mots specifiques au fichier"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">MESSAGE</span> = <span style="color: #008000;">"Les mots sp&#233;cifiques au fichier sont:"</span>;
+
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">BooksLibrary</span> <span style="color: #BA36A5;">library</span>;
+
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">SpecificWordsAction</span>(<span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>, <span style="color: #6434A3;">BooksLibrary</span> <span style="color: #BA36A5;">library</span>){
+        <span style="color: #0000FF;">this</span>.book = book;
+        <span style="color: #0000FF;">this</span>.library = library;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">String</span> <span style="color: #006699;">getLabel</span>(){
+        <span style="color: #0000FF;">return</span> LABEL;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">doIt</span>(){
+        System.out.println(MESSAGE);
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">String</span> <span style="color: #006699;">word</span> : library.getSpecificWords(book)){
+            System.out.println(word);
+        }
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org18bb5c3" class="outline-3">
+<h3 id="org18bb5c3"><span class="section-number-3">3.10</span> Pourcentage de mots partagés</h3>
+<div class="outline-text-3" id="text-3-10">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">Map</span>;
+
+<span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">SharedWordsPercentAction</span> <span style="color: #0000FF;">implements</span> <span style="color: #6434A3;">MenuItem</span>{
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">LABEL</span> = <span style="color: #008000;">"Afficher les pourcentages de mots partag&#233;s avec ce fichier"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">MESSAGE</span> = <span style="color: #008000;">"Les pourcentages sont :"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">PERCENT_MESSAGE</span> = <span style="color: #008000;">"%s : %f%%"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">BooksLibrary</span> <span style="color: #BA36A5;">library</span>;
+
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">SharedWordsPercentAction</span>(<span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>, <span style="color: #6434A3;">BooksLibrary</span> <span style="color: #BA36A5;">library</span>){
+        <span style="color: #0000FF;">this</span>.book = book;
+        <span style="color: #0000FF;">this</span>.library = library;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">String</span> <span style="color: #006699;">getLabel</span>(){
+        <span style="color: #0000FF;">return</span> LABEL;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">doIt</span>(){
+        System.out.println(MESSAGE);
+        <span style="color: #0000FF;">for</span>(<span style="color: #D0372D;">Map</span>.<span style="color: #6434A3;">Entry</span>&lt;<span style="color: #6434A3;">Book</span>, <span style="color: #6434A3;">Float</span>&gt; <span style="color: #006699;">bookPercent</span> : library.getSharedWordsPercent(book).entrySet()){
+            System.out.println(String.format(PERCENT_MESSAGE, bookPercent.getKey().getFilename()
+                                                 , bookPercent.getValue()));
+        }
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge23575d" class="outline-3">
+<h3 id="orge23575d"><span class="section-number-3">3.11</span> Quitter</h3>
+<div class="outline-text-3" id="text-3-11">
+<p>
+On ne permet que le "O" majuscule lors de la demande de confirmation,
+on pourrait aussi accepter le 'o' minuscule.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">QuitAction</span> <span style="color: #0000FF;">implements</span> <span style="color: #6434A3;">MenuItem</span>{
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">LABEL</span> = <span style="color: #008000;">"Quitter le programme"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">CONFIRM_MESSAGE</span> = <span style="color: #008000;">"&#202;tes-vous s&#251;r ? (%s / %s)"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">YES</span> = <span style="color: #008000;">"O"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">NO</span> = <span style="color: #008000;">"N"</span>;
+
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">boolean</span>[] <span style="color: #BA36A5;">result</span>;
+
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">QuitAction</span>(<span style="color: #6434A3;">boolean</span>[] <span style="color: #BA36A5;">result</span>){
+        <span style="color: #0000FF;">this</span>.result= result; <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">TODO lancer une exception si result.length != 1 (ou au moins si &lt; 1 !)</span>
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">String</span> <span style="color: #006699;">getLabel</span>(){
+        <span style="color: #0000FF;">return</span> LABEL;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">doIt</span>(){
+        System.out.println(String.format(CONFIRM_MESSAGE, YES, NO));
+        result[0]= Main.sc.nextLine().equals(YES);
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org206917e" class="outline-3">
+<h3 id="org206917e"><span class="section-number-3">3.12</span> Menu</h3>
+<div class="outline-text-3" id="text-3-12">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">List</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">InputMismatchException</span>;
+
+<span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">Menu</span> {
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">PROMPT</span>= <span style="color: #008000;">"Saisissez le num&#233;ro de votre choix (entier entre 1 et %d):"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">ENTRY_MESSAGE</span> = <span style="color: #008000;">"%d. %s"</span>; 
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">ERROR_MESSAGE</span>= <span style="color: #008000;">"Saisie invalide"</span>;
+
+    <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">title</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">List</span>&lt;<span style="color: #6434A3;">MenuItem</span>&gt; <span style="color: #BA36A5;">entries</span>;
+    
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">Menu</span>(<span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">title</span>, <span style="color: #6434A3;">List</span>&lt;<span style="color: #6434A3;">MenuItem</span>&gt; <span style="color: #BA36A5;">entries</span>){
+        <span style="color: #0000FF;">this</span>.title = title;
+        <span style="color: #0000FF;">this</span>.entries = entries;
+    }
+    <span style="color: #8D8D84;">/*</span><span style="color: #8D8D84; font-style: italic;">retourn l'indice commen&#231;ant &#224; 0 et non la saisie (&#224; partir de 1)</span>
+<span style="color: #8D8D84; font-style: italic;">     */</span>
+    <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">int</span> <span style="color: #006699;">getChoice</span>(){
+        <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">res</span> = -1;
+        <span style="color: #0000FF;">do</span>{
+            <span style="color: #0000FF;">try</span> {
+                System.out.println(String.format(PROMPT, entries.size()));
+                res = Main.sc.nextInt();
+                Main.sc.nextLine();
+            }<span style="color: #0000FF;">catch</span>(<span style="color: #6434A3;">InputMismatchException</span> <span style="color: #BA36A5;">e</span>){
+                System.err.println(ERROR_MESSAGE);
+                Main.sc.nextLine();
+            }
+            }<span style="color: #0000FF;">while</span>((res &lt; 1) || (res &gt; entries.size()));
+        <span style="color: #0000FF;">return</span> res - 1;
+    }
+
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">doIt</span>(){
+        System.out.println(title);
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>= 0; i != entries.size(); ++i){
+            System.out.println(String.format(ENTRY_MESSAGE, i+1, entries.get(i).getLabel()));
+        }
+        entries.get(getChoice()).doIt();
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2769f44" class="outline-2">
+<h2 id="org2769f44"><span class="section-number-2">4</span> Classes Métier</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgbd5d0f7" class="outline-3">
+<h3 id="orgbd5d0f7"><span class="section-number-3">4.1</span> Ensemble des textes</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+En terme de données, cette classe n'apporte rien par rapport à un
+ensemble d'instance de <code class="src src-java">Book</code>. Elle permet de
+regrouper les opérations sur cet ensemble de textes. Il est important
+de noter que ces opérations ne font pas d'entrées/sorties. Elles sont
+appelées par les méthodes qui font des E/S.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">Set</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">HashSet</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">Map</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">HashMap</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">NoSuchElementException</span>;
+
+<span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">BooksLibrary</span>{
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">Set</span>&lt;<span style="color: #6434A3;">Book</span>&gt; <span style="color: #BA36A5;">books</span> = <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">HashSet</span>&lt;<span style="color: #6434A3;">Book</span>&gt;();
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">BooksLibrary</span>(){
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">add</span>(<span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>){
+        books.add(book);
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">remove</span>(<span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>){
+        books.remove(book);
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">remove</span>(<span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">filename</span>){
+        remove(getByFilename(filename));
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">Book</span> <span style="color: #006699;">getByFilename</span>(<span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">filename</span>){
+        <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">TODO utiliser Optional http://www.touilleur-express.fr/2014/11/07/optional-en-java-8/</span>
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>: books){
+            <span style="color: #0000FF;">if</span>(book.getFilename().equals(filename)){
+                <span style="color: #0000FF;">return</span> book;
+            }
+        }
+        <span style="color: #0000FF;">throw</span> <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">NoSuchElementException</span>(filename);
+        <span style="color: #8D8D84;">//      </span><span style="color: #8D8D84; font-style: italic;">return null; // !! cf Optional</span>
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">Set</span>&lt;<span style="color: #6434A3;">Book</span>&gt; <span style="color: #006699;">getBooks</span>(){
+        <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">TODO https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html#unmodifiableSet(java.util.Set)</span>
+        <span style="color: #0000FF;">return</span> books;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">Set</span>&lt;<span style="color: #6434A3;">String</span>&gt; <span style="color: #006699;">getSpecificWords</span>(<span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>){
+        <span style="color: #6434A3;">Set</span>&lt;<span style="color: #6434A3;">String</span>&gt; <span style="color: #BA36A5;">res</span> = <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">HashSet</span>&lt;<span style="color: #6434A3;">String</span>&gt;(book.getWords());
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">otherBook</span> : books){
+            <span style="color: #0000FF;">if</span>(otherBook != book){
+                res.removeAll(otherBook.getWords());
+            }
+        }
+        <span style="color: #0000FF;">return</span> res;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">Map</span>&lt;<span style="color: #6434A3;">Book</span>, <span style="color: #6434A3;">Float</span>&gt; <span style="color: #006699;">getSharedWordsPercent</span>(<span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">book</span>){
+        <span style="color: #6434A3;">Map</span>&lt;<span style="color: #6434A3;">Book</span>, <span style="color: #6434A3;">Float</span>&gt; <span style="color: #BA36A5;">res</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">HashMap</span>&lt;<span style="color: #6434A3;">Book</span>, <span style="color: #6434A3;">Float</span>&gt;();
+        <span style="color: #6434A3;">Set</span>&lt;<span style="color: #6434A3;">String</span>&gt; <span style="color: #BA36A5;">words</span> = book.getWords();
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">Book</span> <span style="color: #BA36A5;">otherBook</span> : books){
+            <span style="color: #0000FF;">if</span>(otherBook != book){
+                <span style="color: #6434A3;">Set</span>&lt;<span style="color: #6434A3;">String</span>&gt; <span style="color: #BA36A5;">otherWords</span> = <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">HashSet</span>&lt;<span style="color: #6434A3;">String</span>&gt;(otherBook.getWords());
+                <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">nbWords</span> = otherWords.size();
+                otherWords.retainAll(words);
+                res.put(otherBook, 100.f*otherWords.size()/nbWords);
+            }
+        }
+        <span style="color: #0000FF;">return</span> res;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">boolean</span> <span style="color: #006699;">equals</span>(<span style="color: #6434A3;">Object</span> <span style="color: #BA36A5;">o</span>){
+        <span style="color: #0000FF;">return</span> (o != <span style="color: #D0372D;">null</span>) &amp;&amp; (o <span style="color: #0000FF;">instanceof</span> BooksLibrary) &amp;&amp; (books.equals(((<span style="color: #6434A3;">BooksLibrary</span>)o).books));
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">int</span> <span style="color: #006699;">hashCode</span>(){
+        <span style="color: #0000FF;">return</span> books.hashCode();
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgad6f93a" class="outline-3">
+<h3 id="orgad6f93a"><span class="section-number-3">4.2</span> Texte</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Si une fichier <code>.java</code> ne peut contenir qu'une seule classe
+<i>publique</i>, il peut contenir d'autres classes de visibilité réduite
+(i.e. la visibilité par défaut, réduite au <i>package</i>). On ajoute ici
+la classe qui permet de trier les mots en fonction du nombre
+d'occurrences. On utilise le fait que l'instance de cette classe peut
+avoir des attributs d'instance pour avoir une référence vers la table
+qui associe les nombre d'occurrences aux mots.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">Collections</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">Map</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">HashMap</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">List</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">ArrayList</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">Set</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">Comparator</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">Scanner</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #D0372D;">regex</span>.<span style="color: #6434A3;">Matcher</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #D0372D;">regex</span>.<span style="color: #6434A3;">Pattern</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">io</span>.<span style="color: #6434A3;">FileNotFoundException</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">io</span>.<span style="color: #6434A3;">File</span>;
+
+<span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">Book</span>{
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">filename</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">Map</span>&lt;<span style="color: #6434A3;">String</span>, <span style="color: #6434A3;">Integer</span>&gt; <span style="color: #BA36A5;">wordToNbOcc</span> = <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">HashMap</span>&lt;<span style="color: #6434A3;">String</span>, <span style="color: #6434A3;">Integer</span>&gt;();
+    <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">long</span> <span style="color: #BA36A5;">nbLines</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">long</span> <span style="color: #BA36A5;">nbWords</span>;
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">Book</span>(<span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">filename</span>) <span style="color: #0000FF;">throws</span> <span style="color: #6434A3;">FileNotFoundException</span> {
+        <span style="color: #0000FF;">this</span>.filename= filename;
+        <span style="color: #6434A3;">Pattern</span> <span style="color: #BA36A5;">p</span> = Pattern.compile(<span style="color: #008000;">"\\w+"</span>, <span style="color: #D0372D;">Pattern</span>.UNICODE_CHARACTER_CLASS);
+        <span style="color: #0000FF;">try</span>(<span style="color: #6434A3;">Scanner</span> <span style="color: #BA36A5;">sc</span> = <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Scanner</span>(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">File</span>(filename))){
+            <span style="color: #0000FF;">for</span>(nbLines = 0, nbWords = 0; sc.hasNextLine(); ++nbLines){
+                <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">Matcher</span> <span style="color: #BA36A5;">m1</span> = p.matcher(sc.nextLine()); m1.find(); ++nbWords) {
+                    <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">word</span>= m1.group().toLowerCase();
+                    <span style="color: #6434A3;">Integer</span> <span style="color: #BA36A5;">nbOcc</span>= wordToNbOcc.get(word);
+                    wordToNbOcc.put(word, (nbOcc == <span style="color: #D0372D;">null</span>) ? 1 : nbOcc+1);
+                }
+            }
+        }
+    }
+
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">String</span> <span style="color: #006699;">getFilename</span>(){
+        <span style="color: #0000FF;">return</span> filename;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">long</span> <span style="color: #006699;">getNbLines</span>(){
+        <span style="color: #0000FF;">return</span> nbLines;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">long</span> <span style="color: #006699;">getNbWords</span>(){
+        <span style="color: #0000FF;">return</span> nbWords;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">Set</span>&lt;<span style="color: #6434A3;">String</span>&gt; <span style="color: #006699;">getWords</span>(){
+        <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">https://docs.oracle.com/javase/9/core/creating-immutable-lists-sets-and-maps.htm</span>
+        <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">TODO https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html#unmodifiableSet(java.util.Set)</span>
+        <span style="color: #0000FF;">return</span> wordToNbOcc.keySet();
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">List</span>&lt;<span style="color: #6434A3;">String</span>&gt; <span style="color: #006699;">getTopWords</span>(){
+        <span style="color: #6434A3;">List</span>&lt;<span style="color: #6434A3;">String</span>&gt; <span style="color: #BA36A5;">res</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">ArrayList</span>&lt;<span style="color: #6434A3;">String</span>&gt;(wordToNbOcc.keySet());
+        Collections.sort(res, <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">NbOccComparator</span>(wordToNbOcc)); <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">devrait &#234;tre une classe interne</span>
+        <span style="color: #0000FF;">return</span> res;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">int</span> <span style="color: #006699;">getNbOcc</span>(<span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">word</span>){
+        <span style="color: #0000FF;">return</span> wordToNbOcc.get(word);
+    }
+}
+
+<span style="color: #0000FF;">class</span> <span style="color: #6434A3;">NbOccComparator</span> <span style="color: #0000FF;">implements</span> <span style="color: #6434A3;">Comparator</span>&lt;<span style="color: #6434A3;">String</span>&gt; {
+    <span style="color: #6434A3;">Map</span>&lt;<span style="color: #6434A3;">String</span>, <span style="color: #6434A3;">Integer</span>&gt; <span style="color: #BA36A5;">wordToNbOcc</span>;
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">NbOccComparator</span>(<span style="color: #6434A3;">Map</span>&lt;<span style="color: #6434A3;">String</span>, <span style="color: #6434A3;">Integer</span>&gt; <span style="color: #BA36A5;">wordToNbOcc</span>){
+        <span style="color: #0000FF;">this</span>.wordToNbOcc = wordToNbOcc;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">int</span> <span style="color: #006699;">compare</span>(<span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">word1</span>, <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">word2</span>){
+        <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">res</span>= wordToNbOcc.get(word2).compareTo(wordToNbOcc.get(word1));
+        <span style="color: #0000FF;">return</span> (res != 0) ? res : word1.compareTo(word2);
+    }
+}
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge2d5803" class="outline-2">
+<h2 id="orge2d5803"><span class="section-number-2">5</span> Programme principal</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Le programme principal est très réduit : il se contente d'initialiser
+le menu et d'appeler celui-ci en boucle tant que l'action
+<code class="src src-java">QuitAction</code> n'a pas modifié le tableau passé
+en argument de son constructeur pour indiquer la fin demandée.
+</p>
+
+<p>
+En fait, il faudrait avoir un menu spécifique lorsque le nombre de
+textes est <code>0</code> car il n'est alors pas possible de supprimer un texte !
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">Scanner</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">List</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">ArrayList</span>;
+<span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">InputMismatchException</span>;
+
+<span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">Main</span> {
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">TITLE</span> = <span style="color: #008000;">"Gestion de collection de textes :"</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">LOADING_START</span> = <span style="color: #008000;">"Chargement de %s ..."</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #0000FF;">final</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">LOADING_END</span> = <span style="color: #008000;">" effectu&#233;"</span>;
+    <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">static</span> <span style="color: #0000FF;">final</span> <span style="color: #6434A3;">Scanner</span> <span style="color: #BA36A5;">sc</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Scanner</span>(System.in);
+
+    <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">main</span>(<span style="color: #6434A3;">String</span>[] <span style="color: #BA36A5;">args</span>){
+        <span style="color: #6434A3;">BooksLibrary</span> <span style="color: #BA36A5;">library</span> = <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">BooksLibrary</span>();
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">filename</span> : args){
+            <span style="color: #0000FF;">try</span>{
+                System.out.print(String.format(LOADING_START, filename));
+                library.add(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Book</span>(filename));
+                System.out.println(LOADING_END);
+            }<span style="color: #0000FF;">catch</span>(<span style="color: #6434A3;">Exception</span> <span style="color: #BA36A5;">e</span>){
+                e.printStackTrace();
+            }
+        }
+        <span style="color: #6434A3;">boolean</span> [] <span style="color: #BA36A5;">quitting</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">boolean</span>[1];
+        <span style="color: #6434A3;">List</span>&lt;<span style="color: #6434A3;">MenuItem</span>&gt; <span style="color: #BA36A5;">entries</span> = <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">ArrayList</span>&lt;<span style="color: #6434A3;">MenuItem</span>&gt;();
+        
+        entries.add(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">ListBooksAction</span>(library));
+        entries.add(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">AddBookAction</span>(library));
+        entries.add(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">RemoveBookAction</span>(library));
+        entries.add(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">BookSelectionAction</span>(library));
+        entries.add(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">QuitAction</span>(quitting));
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">Menu</span> <span style="color: #BA36A5;">menu</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Menu</span>(TITLE, entries); !quitting[0]; menu.doIt()){
+        }
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">Lorsqu'on débute, il est peut-être plus
+facile de suivre une approche descendante car on part de ce qu'on
+connaît le mieux : les spécifications qui concernent surtout le niveau
+global. Avec l'expérience, on privilégiera souvent une approche
+ascendante, l'intuition permettant d'anticiper les composants
+élémentaires qui seront utiles.</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: bernard</p>
+<p class="date">Created: 2019-10-25 Fri 17:32</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
