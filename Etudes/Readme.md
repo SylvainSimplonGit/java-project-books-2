@@ -186,7 +186,7 @@ public class RemoveBookAction implements MenuItem{
 	    String filename= "";
 	    try {
 		filename = Main.sc.nextLine();
-		library.remove(filename);
+		library.remove(new Book(filename));
 		done= true; // Si on est ici, c'est que l'ajout a été fait
 		System.out.println(String.format(SUCCESS_MESSAGE, filename));
 	    }catch(Exception e){
